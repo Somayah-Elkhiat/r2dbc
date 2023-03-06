@@ -6,7 +6,6 @@ import cams.tv.tvmanagement.model.TvModel;
 import cams.tv.tvmanagement.repository.BoutiqaatTvRepository;
 import cams.tv.tvmanagement.repository.BoutiqaatTvRepositoryImpl;
 import cams.tv.tvmanagement.services.ManageTvService;
-import com.sun.istack.NotNull;
 import lombok.extern.slf4j.Slf4j;
 //import org.jetbrains.annotations.NotNull;
 import org.modelmapper.ModelMapper;
@@ -74,7 +73,6 @@ public class ManageTvServiceImpl implements ManageTvService {
 
     }
 
-    @NotNull
     private Mono<TvModel> save(Boutiqaattv boutiqaattv) {
         boutiqaattv.setCreatedDate(new Timestamp(System.currentTimeMillis()));
         Mono<Boutiqaattv> boutiqaatTvMono = boutiqaatTvRepository.save(boutiqaattv);

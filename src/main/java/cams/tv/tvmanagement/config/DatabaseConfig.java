@@ -35,12 +35,12 @@ public class DatabaseConfig {
         return ConnectionFactories.get(
                 ConnectionFactoryOptions.builder()
                         .option(DRIVER, "mysql")
-                        .option(HOST, "localhost")
+                        .option(HOST, "172.31.9.188")
                         .option(PORT, 3306)
-                        .option(USER, "root")
-                        .option(PASSWORD, "Tweety@305")
-                        .option(DATABASE, "cams_tv")
-                        .option(MAX_SIZE, 40)
+                        .option(USER, "beta-master")
+                        .option(PASSWORD, "Kjsfjaasuu1234kjdf")
+                        .option(DATABASE, "boutiqaat_v2")
+                        .option(MAX_SIZE, 20)
                         .build());
     }
 

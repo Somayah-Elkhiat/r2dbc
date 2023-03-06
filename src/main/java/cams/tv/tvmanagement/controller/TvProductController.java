@@ -32,7 +32,7 @@ public class TvProductController {
                                                                   @PageableDefault(size = LIMIT_DEFAULT,
                                                                           sort = DEFAULT_SORT_BY_COLUMN,
                                                                           direction = Sort.Direction.ASC) Pageable page){
-        return tvProductsService.getTvProducts(tvId, tvFilterProductsRequest, page)
+        return tvProductsService.getTvProducts(tvId)
                 .collectList().map(products -> ResponseEntity.ok().body(products))
                 .switchIfEmpty(Mono.error(new BoutiqaatTvNotFoundException("No Products Found")));
 

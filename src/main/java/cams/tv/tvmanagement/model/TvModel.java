@@ -1,7 +1,7 @@
 package cams.tv.tvmanagement.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.sun.istack.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,28 +20,28 @@ public class TvModel implements Serializable {
      */
     private static final long serialVersionUID = 1L;
     private Long id;
-    @NotNull
+     
 //    @Pattern(regexp = Constants.BOUTIQAATTV.VALIDATION_NAME_REGEX)
     private String enName;
-    @NotNull
+     
     private String arabicName;
-    @NotNull
+     
     private String videoUrl;
-    @NotNull
+     
     private String thumbnail;
-    @NotNull
+     
     private String thumbnailList;
-    @NotNull
+     
     private String thumbnailGrid;
-    @NotNull
+     
     private String storeIds;
-    @NotNull
+     
     private String gender;
     private Integer brandId;
     private Integer categoryId;
     private Integer celebrityId;
     private Integer sortOrder;
-    @NotNull
+     
     private Integer status;
     private Integer showInHome;
 

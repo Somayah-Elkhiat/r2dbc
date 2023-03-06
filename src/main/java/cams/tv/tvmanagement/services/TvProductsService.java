@@ -10,5 +10,5 @@ import reactor.core.publisher.Flux;
 @Service
 public interface TvProductsService {
 
-    Flux<TvProductModel> getTvProducts(Long tvId, TvProductsRequest request, Pageable pageable);
+    Flux<TvProductModel> getTvProducts(Long tvId);
 }

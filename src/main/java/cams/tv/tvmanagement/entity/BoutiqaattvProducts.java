@@ -1,11 +1,12 @@
 package cams.tv.tvmanagement.entity;
 
 import lombok.Data;
+import net.lecousin.reactive.data.relational.annotations.ForeignKey;
 //import org.springframework.data.relational.core.mapping.Table;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
-@Table(name = "boutiqaattv_products")
+@org.springframework.data.relational.core.mapping.Table(name = "boutiqaattv_products")
 @Data
 @IdClass(BoutiqaatProductPK.class)
 public class BoutiqaattvProducts {
@@ -19,11 +20,12 @@ public class BoutiqaattvProducts {
 //    @Id
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "tv_id")
-    private Long tvId;
+    @ForeignKey
+    private Boutiqaattv boutiqaattv;
 
 //    @Id
 //    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "product_id")
-    private Integer productId;
+    @ForeignKey
+    private CatalogProductEntity catalogProductEntity;
 
 }

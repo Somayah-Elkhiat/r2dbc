@@ -1,10 +1,9 @@
 package cams.tv.tvmanagement.services.impl;
 
 import cams.tv.tvmanagement.entity.BoutiqaattvProducts;
-import cams.tv.tvmanagement.entity.CatalogProductEntity;
 import cams.tv.tvmanagement.model.TvProductModel;
 import cams.tv.tvmanagement.model.TvProductsRequest;
-import cams.tv.tvmanagement.repository.BoutiqaatTvProductTemplate;
+import cams.tv.tvmanagement.repository.BoutiqaatTvProductRepository;
 import cams.tv.tvmanagement.repository.CatalogProductEntityRepository;
 import cams.tv.tvmanagement.services.TvProductsService;
 import org.modelmapper.ModelMapper;
@@ -18,7 +17,7 @@ import reactor.core.publisher.Flux;
 public class TvProductsServiceImpl implements TvProductsService {
 
     @Autowired
-    private BoutiqaatTvProductTemplate tvProductsTemplate;
+    private BoutiqaatTvProductRepository tvProductsTemplate;
 
     @Autowired
     private CatalogProductEntityRepository productEntityRepository;
@@ -27,21 +26,17 @@ public class TvProductsServiceImpl implements TvProductsService {
     private ModelMapper modelMapper;
 
     @Override
-    public Flux<TvProductModel> getTvProducts(Long tvId, TvProductsRequest request, Pageable pageable) {
-        return tvProductsTemplate.findAllBy(tvId, request, pageable)
-                .flatMap(product -> {
-                    var entity = productEntityRepository
-                            .findByRowId(product.getProductId());
-                    return entity.map(e -> convertToDta(tvId, product, e));
-                }).log();
+    public Flux<TvProductModel> getTvProducts(Long tvId) {
+        return tvProductsTemplate.findByTvId(tvId)
+                .map(product -> convertToDta(tvId, product));
     }
 
 
 
-    private TvProductModel convertToDta(Long tvId, BoutiqaattvProducts product, CatalogProductEntity entity){
+    private TvProductModel convertToDta(Long tvId, BoutiqaattvProducts product){
         TvProductModel tvProductModel = new TvProductModel();
-        tvProductModel.setProductId(product.getProductId());
-        tvProductModel.setSku(entity.getSku());
+        tvProductModel.setProductId(product.getCatalogProductEntity().getRowId());
+        tvProductModel.setSku(product.getCatalogProductEntity().getSku());
         tvProductModel.setTvId(tvId);
         return tvProductModel;
     }

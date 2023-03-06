@@ -1,0 +1,16 @@
+entities:
+  - cams.tv.tvmanagement.entity:
+      - Boutiqaattv
+      - BoutiqaattvProducts
+      - CatalogProductEntity
+
+#spring:
+#  data:
+#    r2dbc:
+#      repositories:
+#        enabled: true
+#  r2dbc:
+#    url: r2dbc:mysql://172.31.9.188:3306
+#    username: beta-master
+#    password: Kjsfjaasuu1234kjdf
+#    name: boutiqaat_v2

@@ -1,16 +1,16 @@
 package cams.tv.tvmanagement.entity;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
+import net.lecousin.reactive.data.relational.annotations.ForeignTable;
+import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 import java.math.BigInteger;
 import java.sql.Timestamp;
 import java.util.Set;
 
-@Table(name = "catalog_product_entity")
+@org.springframework.data.relational.core.mapping.Table(name = "catalog_product_entity")
 @Data
 @NoArgsConstructor
 public class CatalogProductEntity {
@@ -48,6 +48,7 @@ public class CatalogProductEntity {
 //    @EqualsAndHashCode.Exclude
 //    @ToString.Exclude
 //    @OneToMany(mappedBy = "catalogProductEntity", fetch = FetchType.LAZY)
-//    private Set<BoutiqaatTvProduct> tvs;
+    @ForeignTable(joinKey = "catalogProductEntity")
+    private Set<BoutiqaattvProducts> tvs;
 
 }
