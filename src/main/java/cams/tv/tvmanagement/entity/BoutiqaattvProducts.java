@@ -21,11 +21,14 @@ public class BoutiqaattvProducts {
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "tv_id")
     @ForeignKey
+    @org.springframework.data.relational.core.mapping.Column(value = "tv_id")
     private Boutiqaattv boutiqaattv;
 
 //    @Id
 //    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "product_id")
     @ForeignKey
+    @org.springframework.data.relational.core.mapping.Column(value = "product_id")
     private CatalogProductEntity catalogProductEntity;
 
 }

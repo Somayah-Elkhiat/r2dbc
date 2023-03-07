@@ -39,8 +39,8 @@ public class CatalogProductEntity {
     @Column(name = "type_id")
     private String typeId;
 
-    @Column(name = "updated_at")
-    private Timestamp updatedAt;
+//    @Column(name = "updated_at")
+//    private Timestamp updatedAt;
 
     @Column(name = "updated_in")
     private BigInteger updatedIn;
